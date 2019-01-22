@@ -32,14 +32,38 @@ public class SongPanelL extends JButton {
     Dimension space2 = new Dimension(9000,60);
     Dimension space3 = new Dimension(100,100);
     public SongPanelL(Song song) throws IOException {
+        if(song != null){
+        
         //this.setBackground(Color.decode("#dddfd4"));
         Border blackline = BorderFactory.createLineBorder(Color.black);
-        Image image = ImageIO.read(new File("deadkoala.jpg"));
+        Image image = ImageIO.read(new File("disk.jpg"));
          image = image.getScaledInstance(40, 40, Image.SCALE_DEFAULT);
         // play.setBackground(Color.code("#3fb0ac"));
-        JLabel artistLabel = new JLabel(song.songArtist);
-        JLabel titleLabel = new JLabel(song.songTitle);
-        JLabel artLabel = new JLabel(song.ico);
+        
+        JLabel titleLabel;
+        JLabel artLabel;
+        JLabel artistLabel;
+        
+        if(song != null){
+            artistLabel = new JLabel(song.songArtist);
+        }
+        else{
+            artistLabel = new JLabel("");
+        }
+        
+        if(song!= null){
+            titleLabel = new JLabel(song.songTitle);
+        }
+        else{
+            titleLabel = new JLabel("");            
+        }
+        
+        if(song != null){
+            artLabel = new JLabel(song.ico);
+        }
+        else{
+            artLabel = new JLabel("");           
+        }
         // artistLabel.setFont(new Font("Serif",Font.PLAIN, 15));
         //artistL.setForeground(Color.ORANGE);
         //titleL.setFont(new Font("Serif",Font.PLAIN, 15));
@@ -89,9 +113,7 @@ public class SongPanelL extends JButton {
            //     play.setVisible(false);
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
-        });
-       
-
+        });       
+        }
     }
-
 }
